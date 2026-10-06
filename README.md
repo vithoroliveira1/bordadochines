@@ -43,7 +43,7 @@ As respostas e a etapa atual são guardadas na sessão do navegador. É possíve
 - `src/data/questions.js`: todas as perguntas e opções.
 - `src/pages/`: componentes React editáveis de cada página.
 - `src/styles/reference.css`: estilos de layout da referência, preservados para manter as proporções.
-- `public/images/`: 22 imagens locais da referência.
+- `public/images/`: imagens locais da referência e a nova apresentação de Angela Susuki em `angela-susuki.png`, enviada pelo usuário e exibida na página do plano.
 - `src/styles/fonts.css`: fontes distribuídas localmente via pacotes Fontsource.
 
 A interface pública foi reconstruída a partir do HTML, CSS e módulos servidos pelo site de referência, com dependências de React, roteamento e ícones instaladas pelo npm. Não há iframe, proxy do site original nem necessidade de acessá-lo durante a execução do quiz.

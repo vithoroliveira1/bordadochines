@@ -79,7 +79,7 @@ var b = createLucideIcon(`credit-card`, [
     ],
   ]),
   authorImage = {
-    url: `/images/capa-guia-bordado-chines.jpeg`,
+    url: `/images/angela-susuki.png`,
   },
   guideImage = {
     url: `/images/guia-ilustrado.webp`,
@@ -620,7 +620,7 @@ function PlanContent() {
       <section className={`text-center`}>
         <img
           src={authorImage.url}
-          alt={`Angela Susuki segurando o guia Vivendo de Bordado Chinês`}
+          alt={`Apresentação do bordado chinês com Angela Susuki`}
           width={1024}
           height={1536}
           loading={`lazy`}
