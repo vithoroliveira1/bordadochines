@@ -12,7 +12,11 @@ const normalize = (text) =>
 async function matchesReference(page, index) {
   await expect
     .poll(async () => normalize(await page.locator("main").innerText()))
-    .toBe(normalize(reference[index].text));
+    .toBe(
+      normalize(
+        reference[index].text.replaceAll("Pamela Santos", "Angela Susuki"),
+      ),
+    );
 }
 async function choose(page, step, option = 0) {
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
@@ -206,13 +210,13 @@ test("all public pages load locally, images resolve and palette is applied", asy
     expect(
       await page.evaluate(() =>
         getComputedStyle(document.documentElement)
-          .getPropertyValue("--terracotta")
+          .getPropertyValue("--purple")
           .trim(),
       ),
-    ).toBe("#a84e35");
+    ).toBe("#7138b5");
     await expect(page.locator("main")).toHaveCSS(
       "background-color",
-      "rgb(246, 239, 229)",
+      "rgb(255, 255, 255)",
     );
     if (route === "/obrigado")
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(

@@ -620,7 +620,7 @@ function PlanContent() {
       <section className={`text-center`}>
         <img
           src={authorImage.url}
-          alt={`Pamela Santos segurando o guia Vivendo de Bordado Chinês`}
+          alt={`Angela Susuki segurando o guia Vivendo de Bordado Chinês`}
           width={1024}
           height={1536}
           loading={`lazy`}
@@ -628,7 +628,7 @@ function PlanContent() {
         />
         <h2
           className={`${headingStyle} mt-5 text-[26px] font-bold`}
-        >{`Prazer, Pamela Santos`}</h2>
+        >{`Prazer, Angela Susuki`}</h2>
         <p
           className={`${bodyStyle} mt-3 text-[16px] italic leading-[1.7]`}
         >{`"Descobri no bordado uma forma de transformar momentos simples em algo produtivo e prazeroso. Hoje compartilho esse conhecimento através deste guia ilustrado para ajudar outras mulheres a aprender uma habilidade artesanal e criar uma possível fonte de renda extra."`}</p>

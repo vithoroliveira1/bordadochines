@@ -1,6 +1,6 @@
 # Bordado Chinês — quiz
 
-Recriação do fluxo público de https://tecnicamilenardebordado.lovable.app/?angulo=neutro, inspecionado em 6 de outubro de 2026. Textos, imagens, opções, ordem das etapas, carrosséis, preços e destino de compra seguem a referência. A paleta foi alterada para terracota, bege e marrom.
+Recriação do fluxo público de https://tecnicamilenardebordado.lovable.app/?angulo=neutro, inspecionado em 6 de outubro de 2026. Textos, imagens, opções, ordem das etapas, carrosséis, preços e destino de compra seguem a referência. A paleta foi alterada para roxo, branco e lavanda, com detalhes dourados. O nome da apresentadora foi atualizado para Angela Susuki.
 
 ## Executar
 
@@ -39,7 +39,7 @@ As respostas e a etapa atual são guardadas na sessão do navegador. É possíve
 
 ## Alterar cores e conteúdo
 
-- `src/styles/palette.css`: paleta centralizada; terracota `#a84e35`, bege `#f6efe5` e marrom `#493024`.
+- `src/styles/palette.css`: paleta centralizada; roxo `#7138b5`, branco `#ffffff` e lavanda `#f5f0fc`, com texto ameixa `#30213f`.
 - `src/data/questions.js`: todas as perguntas e opções.
 - `src/pages/`: componentes React editáveis de cada página.
 - `src/styles/reference.css`: estilos de layout da referência, preservados para manter as proporções.
