@@ -1,0 +1,67 @@
+/* The only visual change: terracotta, beige and brown throughout the funnel. */
+:root {
+  --terracotta: #a84e35;
+  --terracotta-light: #c66d50;
+  --beige: #f6efe5;
+  --beige-card: #efe2d2;
+  --brown: #493024;
+  --brown-muted: #806451;
+  --cream: var(--beige);
+  --ink: var(--brown);
+  --pink: var(--terracotta);
+  --pink-foreground: #fffaf3;
+  --blush: #f0e1d3;
+  --mint: #e4cdb8;
+  --green: #79523a;
+  --green-foreground: #fffaf3;
+  --trust: #79523a;
+  --star: #b57a42;
+  --background: var(--beige);
+  --foreground: var(--brown);
+  --card: #fffaf3;
+  --card-foreground: var(--brown);
+  --primary: var(--terracotta);
+  --primary-foreground: #fffaf3;
+  --secondary: #79523a;
+  --secondary-foreground: #fffaf3;
+  --muted: #e9d9c7;
+  --muted-foreground: var(--brown-muted);
+  --accent: var(--terracotta);
+  --accent-foreground: #fffaf3;
+  --border: #dac2ac;
+  --input: #dac2ac;
+  --ring: var(--terracotta);
+  --quiz-bg: var(--beige);
+  --quiz-card: var(--beige-card);
+  --quiz-border: #dfc7b2;
+  --quiz-accent: var(--terracotta);
+  --quiz-text: var(--brown);
+  --quiz-muted: var(--brown-muted);
+  --quiz-chevron-border: #c68b6f;
+  --quiz-progress-bg: #e4ceba;
+  --quiz-accent-soft: #f0d9c8;
+  --quiz-success: #79523a;
+  --quiz-success-soft: #eddfcf;
+  --quiz-success-foreground: #fffaf3;
+  --quiz-guarantee: #ae7844;
+  --quiz-guarantee-soft: #f0e1ca;
+  --quiz-star: #b57a42;
+  --quiz-surface: #fffaf3;
+  --quiz-blue: #79523a;
+  --quiz-blue-soft: #ebd8c5;
+  --quiz-blue-foreground: #fffaf3;
+}
+.loading {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  background: var(--beige);
+  color: var(--brown);
+}
+/* Visible keyboard focus keeps the reference's layout unchanged. */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 4px;
+}
