@@ -82,7 +82,7 @@ var b = createLucideIcon(`credit-card`, [
     url: `/images/angela-susuki.png`,
   },
   guideImage = {
-    url: `/images/guia-ilustrado.webp`,
+    url: `/images/guia-ilustrado.png`,
   },
   terezinhaPhoto = `/images/aluna-terezinha-CvSYGDUX.webp`,
   guaranteeImage = `/images/selo-garantia-CWZ7_fVN.webp`,
