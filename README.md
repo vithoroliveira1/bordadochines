@@ -57,7 +57,9 @@ Para trocar o destino, copie `.env.example` para `.env.local`, defina `VITE_CHEC
 
 Os testes interceptam o redirecionamento: nenhuma compra ou cobrança é realizada. O checkout externo, a entrega do produto e a confirmação real de pagamento são serviços externos e não foram recriados. `/obrigado` é apenas a tela visual, não um verificador de pagamentos.
 
-Credenciais, banco de dados, painel administrativo e contas de Meta Pixel/Clarity do site de referência não foram conectados. Respostas e eventos de interação ficam somente na sessão local. O projeto não depende de banco de dados ou chaves de API para executar o fluxo público.
+O script UTMify fornecido pelo usuário está instalado em `index.html`, carregado de `https://cdn.utmify.com.br/scripts/utms/latest.js`, com `async`, `defer`, `data-utmify-prevent-xcod-sck` e `data-utmify-prevent-subids`. Essa é a forma legível equivalente ao carregador codificado enviado. A instalação vale para todas as páginas. Os testes simulam a resposta desse serviço externo e verificam a instalação e o repasse dos parâmetros ao checkout; não confirmam o registro de conversões no painel UTMify.
+
+Credenciais, banco de dados, painel administrativo e contas de Meta Pixel/Clarity do site de referência não foram conectados. O armazenamento próprio de respostas e eventos continua na sessão local; o script UTMify possui seu próprio comportamento de rastreamento. O projeto não depende de banco de dados ou chaves de API para executar o fluxo público.
 
 ## Publicação
 
