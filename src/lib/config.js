@@ -1,4 +1,3 @@
-// The default preserves the destination of the reference site's purchase buttons.
+// Default purchase destination; optionally overridden at build time.
 export const CHECKOUT_URL =
-  import.meta.env.VITE_CHECKOUT_URL ||
-  "https://lastlink.com/p/CCA490B65/checkout-payment/";
+  import.meta.env.VITE_CHECKOUT_URL || "https://pay.wiapy.com/5a9Wt7I5wjcT";

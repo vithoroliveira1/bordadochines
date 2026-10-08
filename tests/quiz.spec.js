@@ -149,7 +149,7 @@ test("purchase buttons preserve checkout and attribution without making a purcha
   page,
 }) => {
   const destinations = [];
-  await page.route("https://lastlink.com/**", (route) => {
+  await page.route("https://pay.wiapy.com/**", (route) => {
     destinations.push(route.request().url());
     return route.fulfill({
       contentType: "text/html",
@@ -164,9 +164,7 @@ test("purchase buttons preserve checkout and attribution without making a purcha
       .getByRole("link", { name: "QUERO GARANTIR MINHA VAGA", exact: true })
       .nth(index)
       .click();
-    await expect(page).toHaveURL(
-      /lastlink\.com\/p\/CCA490B65\/checkout-payment\//,
-    );
+    await expect(page).toHaveURL(/^https:\/\/pay\.wiapy\.com\/5a9Wt7I5wjcT\?/);
     const url = new URL(destinations.at(-1));
     expect(url.searchParams.get("angulo")).toBe("neutro");
     expect(url.searchParams.get("utm_source")).toBe("teste");

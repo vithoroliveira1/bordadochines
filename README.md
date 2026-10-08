@@ -50,8 +50,8 @@ A interface pública foi reconstruída a partir do HTML, CSS e módulos servidos
 
 ## Checkout e integrações
 
-O destino padrão dos botões de compra é o mesmo da referência:
-`https://lastlink.com/p/CCA490B65/checkout-payment/`.
+O destino padrão dos botões de compra é o checkout Wiapy:
+`https://pay.wiapy.com/5a9Wt7I5wjcT`.
 
 Para trocar o destino, copie `.env.example` para `.env.local`, defina `VITE_CHECKOUT_URL` e refaça o build. Parâmetros de campanha e `angulo` são preservados no checkout.
 
