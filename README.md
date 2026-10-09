@@ -59,6 +59,8 @@ Os testes interceptam o redirecionamento: nenhuma compra ou cobrança é realiza
 
 O script UTMify fornecido pelo usuário está instalado em `index.html`, carregado de `https://cdn.utmify.com.br/scripts/utms/latest.js`, com `async`, `defer`, `data-utmify-prevent-xcod-sck` e `data-utmify-prevent-subids`. Essa é a forma legível equivalente ao carregador codificado enviado. A instalação vale para todas as páginas. Os testes simulam a resposta desse serviço externo e verificam a instalação e o repasse dos parâmetros ao checkout; não confirmam o registro de conversões no painel UTMify.
 
+O pixel UTMify também está instalado em `index.html`: `window.pixelId` é definido como `6ac82e43d0a1f8958d7b48b9` antes de carregar `https://cdn.utmify.com.br/scripts/pixel/pixel.js` com `async` e `defer`. O script de UTMs permanece ativo. Os testes verificam o ID disponível no momento do carregamento e a ausência de duplicação do pixel durante a navegação no quiz, usando uma resposta simulada da CDN.
+
 Credenciais, banco de dados, painel administrativo e contas de Meta Pixel/Clarity do site de referência não foram conectados. O armazenamento próprio de respostas e eventos continua na sessão local; o script UTMify possui seu próprio comportamento de rastreamento. O projeto não depende de banco de dados ou chaves de API para executar o fluxo público.
 
 ## Publicação

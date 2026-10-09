@@ -2,12 +2,18 @@ import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import { questions } from "../src/data/questions.js";
 const utmifyScriptUrl = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+const utmifyPixelUrl = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+const utmifyPixelStub = {
+  contentType: "application/javascript",
+  body: "window.__utmifyPixelLoadedWithId = window.pixelId; window.__utmifyPixelLoads = (window.__utmifyPixelLoads || 0) + 1;",
+};
 const utmifyStub = {
   contentType: "application/javascript",
   body: "window.__utmifyLoaded = true;",
 };
 test.beforeEach(async ({ page }) => {
   await page.route(utmifyScriptUrl, (route) => route.fulfill(utmifyStub));
+  await page.route(utmifyPixelUrl, (route) => route.fulfill(utmifyPixelStub));
 });
 
 test("UTMify loads once with the supplied options across quiz navigation", async ({
@@ -15,6 +21,13 @@ test("UTMify loads once with the supplied options across quiz navigation", async
 }) => {
   await page.goto("/?utm_source=teste");
   const script = page.locator(`script[src="${utmifyScriptUrl}"]`);
+  const pixel = page.locator(`script[src="${utmifyPixelUrl}"]`);
+  await expect(pixel).toHaveCount(1);
+  await expect(pixel).toHaveAttribute("async", "");
+  await expect(pixel).toHaveAttribute("defer", "");
+  await expect
+    .poll(() => page.evaluate(() => window.__utmifyPixelLoadedWithId))
+    .toBe("6ac82e43d0a1f8958d7b48b9");
   await expect(script).toHaveCount(1);
   for (const attribute of [
     "async",
@@ -33,6 +46,8 @@ test("UTMify loads once with the supplied options across quiz navigation", async
     .click();
   await expect(page).toHaveURL(/\/quiz/);
   await expect(script).toHaveCount(1);
+  await expect(pixel).toHaveCount(1);
+  expect(await page.evaluate(() => window.__utmifyPixelLoads)).toBe(1);
 });
 const reference = JSON.parse(
   readFileSync(new URL("./fixtures/reference-flow.json", import.meta.url)),
@@ -74,6 +89,9 @@ for (let path = 0; path < 4; path++) {
     await page.route("**/*", (route) => {
       if (route.request().url() === utmifyScriptUrl) {
         return route.fulfill(utmifyStub);
+      }
+      if (route.request().url() === utmifyPixelUrl) {
+        return route.fulfill(utmifyPixelStub);
       }
       if (!route.request().url().startsWith("http://127.0.0.1:4173")) {
         unexpectedRequests.push(route.request().url());
